@@ -1,0 +1,28 @@
+body {
+    background-color: #050505;
+    color: #00ff41; /* Verde neón */
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.terminal-card {
+    border: 2px solid #00ff41;
+    padding: 3rem;
+    background: rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    text-align: center;
+}
+#clock { font-size: 5rem; margin: 20px 0; text-shadow: 0 0 15px #00ff41; }
+.highlight { background: #00ff41; color: black; padding: 2px 8px; font-weight: bold; }
+button {
+    background: transparent;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+}
+button:hover { background: #00ff41; color: black; }
