@@ -1,89 +1,88 @@
 :root {
-    --profe-azul: #1a73e8;
-    --drive-amarillo: #fbbc04;
-    --fondo-gris: #f8f9fa;
-    --texto-oscuro: #202124;
+    --primario: #7c3aed; /* Morado NEM */
+    --secundario: #f5f3ff;
+    --acento: #facc15;
+    --texto: #1e293b;
+    --gris-suave: #f8fafc;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--fondo-gris);
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--gris-suave);
     margin: 0;
-    color: var(--texto-oscuro);
+    color: var(--texto);
+    line-height: 1.6;
 }
 
 header {
-    background: var(--profe-azul);
+    background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
     color: white;
-    padding: 2.5rem 1rem;
+    padding: 3rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-bottom: 5px solid var(--acento);
 }
 
-.fecha-header { margin-top: 10px; font-size: 0.9rem; opacity: 0.9; }
-
-.grid-clases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    padding: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
+.contenedor {
+    max-width: 900px;
+    margin: -40px auto 40px;
+    padding: 0 20px;
 }
 
-.tarjeta {
+.seccion-card {
     background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-top: 6px solid var(--profe-azul);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+h2 { color: var(--primario); border-bottom: 2px solid var(--secundario); padding-bottom: 10px; }
+
+/* Estilo para los Pasos/Cronograma */
+.paso {
     display: flex;
-    flex-direction: column;
-}
-
-.pda-box {
-    background: #e7f3ff;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    margin: 15px 0;
-    border-left: 4px solid var(--profe-azul);
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+    align-items: flex-start;
     margin-bottom: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #000;
+    padding: 15px;
+    background: var(--secundario);
+    border-radius: 12px;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-}
-
-.grupo-botones {
+.paso-numero {
+    background: var(--primario);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    font-weight: bold;
 }
 
-.btn {
-    flex: 1;
-    text-align: center;
-    padding: 12px 5px;
-    border-radius: 8px;
+.btn-accion {
+    display: inline-block;
+    background: var(--primario);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.8rem;
+    margin: 10px 5px;
     transition: 0.3s;
 }
 
-.btn-pdf { background: var(--profe-azul); color: white; }
-.btn-drive { background: var(--drive-amarillo); color: #333; }
-.btn:hover { transform: scale(1.02); opacity: 0.9; }
+.btn-accion:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3); }
 
-footer { text-align: center; padding: 2rem; color: #70757a; font-size: 0.8rem; }
+.video-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

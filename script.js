@@ -1,45 +1,50 @@
-const misProyectos = [
-    {
-        numero: "25",
-        titulo: "¡Las mujeres en defensa de sus derechos!",
-        descripcion: "Identificaremos la participación histórica de las mujeres y sus luchas por la igualdad y una vida libre de violencia.",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-        pdfLocal: "recursos/pdfs/1_P_NLP3_ENS_25_26_27.pdf",
-        driveUrl: "https://drive.google.com/drive/folders/1CzWm2CUAHJOg6xSjlsvIVRrcfukh1NtA",
-        pda: "Analiza testimonios y argumenta cambios históricos en el 'deber ser' de las mujeres."
-    }
-];
+const proyecto = {
+    titulo: "¡Las mujeres en defensa de sus derechos!",
+    pda: "Analiza testimonios y argumenta cambios históricos en el 'deber ser' de las mujeres.",
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    pdf: "recursos/pdfs/1_P_NLP3_ENS_25_26_27.pdf",
+    drive: "https://drive.google.com/drive/folders/1CzWm2CUAHJOg6xSjlsvIVRrcfukh1NtA",
+    etapas: [
+        "¿Qué sabemos?: Punto de partida sobre la igualdad.",
+        "Lo que necesitamos saber: Indagación histórica.",
+        "Organizamos las actividades: Plan de acción.",
+        "Creatividad en marcha: Elaboración del Cuadro Revelador.",
+        "Compartimos: Encuentro de expresiones libres."
+    ]
+};
 
-const fechaElem = document.getElementById('fecha-actual');
-if(fechaElem) {
-    fechaElem.innerText = new Date().toLocaleDateString('es-MX', { 
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
-    });
+function renderProyecto() {
+    const main = document.getElementById('contenedor-clases');
+    
+    let etapasHTML = proyecto.etapas.map((e, i) => `
+        <div class="paso">
+            <div class="paso-numero">${i+1}</div>
+            <div>${e}</div>
+        </div>
+    `).join('');
+
+    main.innerHTML = `
+        <div class="contenedor">
+            <section class="seccion-card">
+                <h2>🎯 Nuestro Objetivo (PDA)</h2>
+                <p>${proyecto.pda}</p>
+                <div class="video-wrap">
+                    <iframe src="${proyecto.video}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-card">
+                <h2>📅 Cronograma de Trabajo</h2>
+                ${etapasHTML}
+            </section>
+
+            <section class="seccion-card" style="text-align:center;">
+                <h2>📦 Recursos y Entregables</h2>
+                <a href="${proyecto.pdf}" class="btn-accion" target="_blank">📄 Descargar Guía PDF</a>
+                <a href="${proyecto.drive}" class="btn-accion" style="background:#f59e0b" target="_blank">📚 Biblioteca Drive</a>
+            </section>
+        </div>
+    `;
 }
 
-function cargarProyectos() {
-    const contenedor = document.getElementById('contenedor-clases');
-    if(!contenedor) return;
-    contenedor.innerHTML = "";
-    misProyectos.forEach(proyecto => {
-        contenedor.innerHTML += `
-            <div class="tarjeta">
-                <small style="color: #666; font-weight: bold;">PROYECTO ${proyecto.numero}</small>
-                <h2>${proyecto.titulo}</h2>
-                <div class="pda-box">
-                    <strong>Aprendizaje (PDA):</strong><br>
-                    ${proyecto.pda}
-                </div>
-                <div class="video-container">
-                    <iframe src="${proyecto.videoUrl}" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <p>${proyecto.descripcion}</p>
-                <div class="grupo-botones">
-                    <a href="${proyecto.pdfLocal}" target="_blank" class="btn btn-pdf">📄 Ver Planeación</a>
-                    <a href="${proyecto.driveUrl}" target="_blank" class="btn btn-drive">📚 Libros Drive</a>
-                </div>
-            </div>
-        `;
-    });
-}
-cargarProyectos();
+renderProyecto();
