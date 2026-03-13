@@ -1,28 +1,89 @@
+:root {
+    --profe-azul: #1a73e8;
+    --drive-amarillo: #fbbc04;
+    --fondo-gris: #f8f9fa;
+    --texto-oscuro: #202124;
+}
+
 body {
-    background-color: #050505;
-    color: #00ff41; /* Verde neón */
-    font-family: 'Courier New', monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fondo-gris);
     margin: 0;
+    color: var(--texto-oscuro);
 }
-.terminal-card {
-    border: 2px solid #00ff41;
-    padding: 3rem;
-    background: rgba(0, 255, 65, 0.05);
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+
+header {
+    background: var(--profe-azul);
+    color: white;
+    padding: 2.5rem 1rem;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-#clock { font-size: 5rem; margin: 20px 0; text-shadow: 0 0 15px #00ff41; }
-.highlight { background: #00ff41; color: black; padding: 2px 8px; font-weight: bold; }
-button {
-    background: transparent;
-    color: #00ff41;
-    border: 1px solid #00ff41;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: inherit;
+
+.fecha-header { margin-top: 10px; font-size: 0.9rem; opacity: 0.9; }
+
+.grid-clases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
-button:hover { background: #00ff41; color: black; }
+
+.tarjeta {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 6px solid var(--profe-azul);
+    display: flex;
+    flex-direction: column;
+}
+
+.pda-box {
+    background: #e7f3ff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin: 15px 0;
+    border-left: 4px solid var(--profe-azul);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.grupo-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-pdf { background: var(--profe-azul); color: white; }
+.btn-drive { background: var(--drive-amarillo); color: #333; }
+.btn:hover { transform: scale(1.02); opacity: 0.9; }
+
+footer { text-align: center; padding: 2rem; color: #70757a; font-size: 0.8rem; }
